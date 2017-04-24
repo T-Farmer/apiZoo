@@ -5,7 +5,7 @@ Creating an API for an existing Angular app
 You'll need to knock the rust off of your Angular Fu for this one! For this project you must design, implement and deploy an API that the following front-end app can query to get, post, put, and delete data about zoo animals and their keepers.
 https://github.com/C-Stein/mean-mongoose-zoo
 
-Requirements
+Requirements!!!
 
 An ERD
 TDD for each route
@@ -14,6 +14,7 @@ Research and understand CORS and how to allow cross origin requests, then implem
 https://www.npmjs.com/package/cors
 Heroku to deploy your API
 Update the URLs in the Angular app to correspond with the API endpoints
+
 Stretch goals
 
 Help the zoo to draw more visitors (and PETA protests) by introducing trainers to teach the animals tricks.
