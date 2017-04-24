@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/T-Farmer/apiZoo/issues"
   },
-  "homepage": "https://github.com/T-Farmer/apiZoo#readme"
+  "homepage": "https://github.com/T-Farmer/apiZoo#readme",
+  "dependencies": {
+    "bookshelf": "^0.10.3",
+    "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "knex": "^0.12.9"
+  }
 }
