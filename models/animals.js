@@ -22,6 +22,17 @@ const Keepers = bookshelf.Model.extend({
     console.log('Animals model; OneAnimal function; line 22');
     .catch(err => err)
   }
+},
+  deleteKeeper: function(id) {
+    return this.forge({id})
+    .destroy()
+    .then( () => {
+      return {'msg': 'Animal removed.'}
+  })
+    console.log('Animals model; Delete animal function; line 32');
+    .catch( (err) => {
+      return err
+  })
 })
 
 module.exports = bookshelf.model('Animals', Animals)
