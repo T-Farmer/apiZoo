@@ -6,8 +6,21 @@ require('./animals');
 
 const Keepers = bookshelf.Model.extend({
   tableName:  'Zookeepers'
-  upvotes:  function(){return this.hasMany()},
-  animals:  function(){return
-  this.belongsToMany('Animals').
+  animals: function(){return this.belongsTo('Animals')},
+}, {
+  getAllKeepers:  function() {
+    console.log('Get all keepers from model');
+    return this.forge()
+    .fetchAll()
+    .then(rows => rows)
+    .catch(err => err)
+  },
+  getOneKeeper: function(id){
+    return this.forge({id})
+    .fetch()
+    .then(show => show)
+    .catch(err => err)
   }
 })
+
+module.exports = bookshelf.model('Keepers', Keepers)

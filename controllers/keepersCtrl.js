@@ -1,14 +1,16 @@
 'use strict';
 
-const {bookshelf} = require('../db/database');
+const Keepers = require('../models/keepers');
 
+//Do we need getKeeper and getKeepers??
+module.exports.getKeepers = ({params: {id}}, res, next) => {
+  Keepers.getOneKeeper(id)
+  .then(Keepers => res.status(200).json(Keepers))
+  .catch(err => next(err))
+}
 
-module.exports.getAnimals = (req, res, next) => {
-  Animals.getAll()
-  .then( (animals) => {
-    res.status(200).json(animals);
-  })
-  .catch( (error) => {
-    next(error);
-  });
-};
+module.exports.getKeepers = (req, res, next)  =>  {
+  Keepers.getAllKeepers()
+  .then(Keepers =>  res.status(200).json(Keepers))
+  .catch(err => next(err))
+}

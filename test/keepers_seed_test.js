@@ -1,9 +1,6 @@
-//seeding for zookeepers
-console.log('keepers', keepers);
-
-exports.seed = function(knex, Promise) {
-  return knex('keepers').del()
-  .then(function () {
+exports.seed = function(knex, Promise){
+  return knex('keepers').del() //deletes entries
+  .then( function() {   //inserts seeds
     return Promise.all([
       knex('keepers').insert({
         name: 'Scott',
@@ -39,5 +36,5 @@ exports.seed = function(knex, Promise) {
         name: 'Brenda',
       }),
       })
-    ]);
+    ])
   };
