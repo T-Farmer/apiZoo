@@ -5,7 +5,11 @@ const router = Router();
 
 router.use(require('./routes'))
 
-router.get('/', function(req, res)) {
-}
+router.get('/', (req, res) => {
+  res.json({
+ 'animals': './animals'
+})
+
+});
 
 module.exports = router;
