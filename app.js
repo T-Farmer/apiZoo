@@ -14,7 +14,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/app/v1/', routes);
+app.use('/api/v1/', routes);
 
 
 //catch 404
@@ -43,7 +43,7 @@ app.use( (err, req,res, next) => {
   });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })

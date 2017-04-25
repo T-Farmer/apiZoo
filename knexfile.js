@@ -3,7 +3,7 @@
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: 'zoo'
     },
@@ -11,37 +11,47 @@ module.exports = {
       directory: __dirname + '/db/seeds/development'
     }
   },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'zoo',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    test: {
+    client: 'pg',
+    connection: 'postgres://localhost/zoo',
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'zoo',
-      user:     'username',
-      password: 'password'
+      directory: __dirname + '/migrations'
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
+    seeds: {
+      directory: __dirname + '/db/seeds'
     }
   }
+
+  // staging: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'zoo',
+  //     user:     'username',
+  //     password: 'password'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
+  // },
+
+  // production: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'zoo',
+  //     user:     'username',
+  //     password: 'password'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
+  // }
 
 };
