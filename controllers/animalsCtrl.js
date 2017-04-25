@@ -4,7 +4,7 @@ const Animals = require('../models/animals');
 
 //Do we need getKeeper and getAnimals??
 module.exports.getAnimals = ({params: {id}}, res, next) => {
-  Animals.getOneKeeper(id)
+  Animals.getOneAnimal(id)
   .then(Animals => res.status(200).json(Animals))
   console.log('AnimalsCtrl; OneAnimals; line 9');
   .catch(err => next(err))
