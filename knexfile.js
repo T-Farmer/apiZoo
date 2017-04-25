@@ -6,6 +6,9 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'zoo'
+    },
+    seeds: {
+      directory: __dirname + '/db/seeds/development'
     }
   },
 
