@@ -6,7 +6,6 @@ require('./animals');
 
 const Keepers = bookshelf.Model.extend({
   tableName:  'Zookeepers'
-  animals: function(){return this.belongsTo('Animals')},
 }, {
   getAllKeepers:  function() {
     console.log('Get all keepers from model');
