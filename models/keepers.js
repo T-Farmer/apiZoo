@@ -13,12 +13,14 @@ const Keepers = bookshelf.Model.extend({
     return this.forge()
     .fetchAll()
     .then(rows => rows)
+    console.log('Keepers model; AllKeepers function; line 16');
     .catch(err => err)
   },
   getOneKeeper: function(id){
     return this.forge({id})
     .fetch()
     .then(show => show)
+    console.log('Keepers model; OneKeeper function; line 23');
     .catch(err => err)
   }
 })
