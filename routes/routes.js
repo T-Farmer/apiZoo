@@ -3,7 +3,7 @@
 const  { Router } = require('express');
 const router = Router();
 
-// const{ all of the methods from the controllers HERE } = require('CONTROLLER')
+// const { all of the methods from the controllers HERE } = require('CONTROLLER')
 
 
 // router.get('/animals', METHOD TO CALL ALL ANIMALS);
