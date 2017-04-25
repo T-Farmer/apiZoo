@@ -10,98 +10,88 @@ exports.seed = function(knex, Promise) {
       }),
       knex('animals').insert({
         name: 'Terrill',
-        species: '',
-        age:
+        species: 'Talkleus Farmersua',
+        age: 12
       }),
       knex('animals').insert({
         name: 'Robert',
         species: 'Robert Robert',
-        age:
+        age: 120
       }),
       knex('animals').insert({
         name: 'Tambo',
-        species: '',
-        age:
+        species: 'Smileitus Charmunia',
+        age: 56
       }),
       knex('animals').insert({
         name: 'Ashley',
-        species: '',
-        age:
+        species: 'Lunchitan Readerous',
+        age: 11
       }),
       knex('animals').insert({
         name: 'Joel',
-        species: '',
-        age:
+        species: 'Anticus Crus',
+        age: 20
       }),
       knex('animals').insert({
         name: 'West',
-        species: '',
-        age:
+        species: 'Pingpongus Melrosi',
+        age: 90
       }),
       knex('animals').insert({
         name: 'Schuyler',
-        species: '',
-        age:
+        species: 'Forcius Withus',
+        age: 17
       }),
       knex('animals').insert({
         name: 'Woodard',
-        species: '',
-        age:
+        species: 'Treeleos Lukeius',
+        age: 8
       }),
       knex('animals').insert({
         name: 'Jesse',
-        species: '',
-        age:
+        species: 'Kirbyi Waddelli',
+        age: 4
       }),
       knex('animals').insert({
         name: 'Charlie',
-        species: '',
-        age:
+        species: 'Predatoris Fanita',
+        age: 89
       }),
       knex('animals').insert({
         name: 'Ben',
-        species: '',
-        age:
+        species: 'Cringleo Chrisitia',
+        age: 234
       }),
       knex('animals').insert({
         name: 'Westley',
-        species: '',
-        age:
+        species: 'Rassberritus Scorekeeperluo',
+        age: 2
       }),
       knex('animals').insert({
         name: 'Sorrel',
-        species: '',
-        age:
+        species: 'Purchaxi Localniam',
+        age: 15
       }),
       knex('animals').insert({
-        name:
-        species:
-        age:
+        name: 'Jared',
+        species: 'Cardinaltum Fanita',
+        age: 12
       }),
       knex('animals').insert({
-        name:
-        species:
-        age:
+        name: 'Lucas',
+        species: 'Ayequenius Highitus',
+        age: 16
       }),
       knex('animals').insert({
-        name:
-        species:
-        age:
+        name: 'Priya',
+        species: 'Krishnapriya Sivasubramanian',
+        age: 9
       }),
       knex('animals').insert({
-        name:
-        species:
-        age:
-      }),
-      knex('animals').insert({
-        name:
-        species:
-        age:
-      }),
-      knex('animals').insert({
-        name:
-        species:
-        age:
+        name: 'Jufe',
+        species: 'Septuaginta Quinct',
+        age: 75
       })
     ]);
   });
