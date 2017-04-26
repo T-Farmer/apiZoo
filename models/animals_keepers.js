@@ -10,8 +10,8 @@ const Animals_Keepers = bookshelf.Model.extend({
   getAnimalsForKeeper: function(id) {
     const keeperId = id
     return this.forge(keeperId)
-    .fetchAll()
     .where('keepers_id', '=', keeperId)
+    .fetchAll()
     .then( (id) => {
       return id
     })
@@ -23,8 +23,8 @@ const Animals_Keepers = bookshelf.Model.extend({
   getKeepersForAnimal: function (id) {
       const animalId = id
     return this.forge(animalId)
-    .fetchAll()
     .where('animals_id', '=', animalId)
+    .fetchAll()
     .then( (id) => {
       return id
     })
