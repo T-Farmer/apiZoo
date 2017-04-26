@@ -19,7 +19,7 @@ router.delete('/keepers/animals/:id', joinDeleteAnimal)
 router.delete('/animals/keepers/:id', joinDeleteKeeper)
 router.delete('/animals/:id', deleteAnimal);
 router.patch('/animals/:new', animalEdit);
-// router.patch('/keepers/:new', keeperEdit);
+router.patch('/keepers/:new', keeperEdit);
 
 
 
