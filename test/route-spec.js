@@ -26,6 +26,14 @@ describe('Zoo Routes', () => {
       .get('/api/v1/animals')
       .then( (res) => {
         res.should.have.status(200)
+        res.should.be.json
+        res.body.should.be.a('array')
+        res.body[0].should.have.property('name')
+        res.body[0].name.should.equal('Robert')
+        res.body[0].should.have.property('species')
+        res.body[0].species.should.equal('Robert Robert')
+        res.body[0].should.have.property('age')
+        res.body[0].age.should.equal('120')
       })
     })
   })
@@ -34,8 +42,15 @@ describe('Zoo Routes', () => {
     it('should post a new animal', () => {
       return chai.request(sever)
       .post('/api/v1/animals/new')
+      .send({
+        name: 'Edgar',
+        species: 'Cow',
+        age: 'GOK'
+      })
       .then( (res) => {
         res.should.have.status(201)
+        res.should.be.json
+        res.should.be.a('object')
       })
     })
   })
@@ -46,6 +61,10 @@ describe('Zoo Routes', () => {
       .get('/api/v1/keepers')
       .then( (res) => {
         res.should.have.status(200)
+        res.should.be.json
+        res.body.should.be.a('array')
+        res.body[0].should.have.property('name')
+        res.body[0].name.should.equal('Dom')
       })
     })
   })
@@ -54,6 +73,9 @@ describe('Zoo Routes', () => {
     it('should post a new keeper', () => {
       return chai.request(sever)
       .post('/api/v1/keppers/new')
+      .send({
+        name: 'Ryan',
+      })
       .then( (res) => {
         res.should.have.status(201)
       })
@@ -83,9 +105,23 @@ describe('Zoo Routes', () => {
   describe('check to see if keeper was removed', () => {
     it('should see if a keeper was removed', () => {
       return chai.request(sever)
-      .get('/api/v1/keepers/:id')
+      .delete('/api/v1/keepers/1')
       .then( (res) => {
         res.should.have.status(200)
+        res.should.be.json
+        res.should.be.a('object')
+
+        chai.request(server)
+        .get('/api/v1/keepers')
+        .then( (keepers) => {
+          console.log("hi there")
+          res.should.have.status(200);
+          res.should.be.json
+          res.body.should.be.a('array');
+          res.body.length.should.equal(1);
+          res.body[0].should.have.property('name');
+          res.body[0].name.should.equal('Scott');
+        })
       })
     })
   })
@@ -93,29 +129,25 @@ describe('Zoo Routes', () => {
   describe('check to see if an animal was removed', () => {
     it('should see if an animal was removed', () => {
       return chai.request(sever)
-      .get('/api/v1/animals/:id')
+      .delete('/api/v1/animals/3')
       .then( (res) => {
         res.should.have.status(200)
-      })
-    })
-  })
+        res.should.be.json
+        res.should.be.a('object')
 
-  describe('patch animal information', () => {
-    it('should see if animal information was patched', () => {
-      return chai.request(sever)
-      .patch('/api/v1/animals/:new')
-      .then( (res) => {
-        res.should.have.status(200)
-      })
-    })
-  })
-
-  describe('patch keeper information', () => {
-    it('should see if keeper information was patched', () => {
-      return chai.request(sever)
-      .patch('/api/v1/keeper/:new')
-      .then( (res) => {
-        res.should.have.status(200)
+        chai.request(server)
+        .get('/api/v1/animals')
+        .then( (animals) => {
+          res.should.have.status(200)
+          res.should.be.json
+          res.body.should.be.a('array')
+          res.body[0].should.have.property('name')
+          res.body[0].name.should.equal('Robert')
+          res.body[0].should.have.property('species')
+          res.body[0].species.should.equal('Robert Robert')
+          res.body[0].should.have.property('age')
+          res.body[0].age.should.equal('120')
+        })
       })
     })
   })
