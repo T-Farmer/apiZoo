@@ -1,6 +1,7 @@
 'use strict';
 
 const Keepers = require('../models/keepers');
+require('../models/animals_keepers')
 
 //Do we need getKeeper and getKeepers??
 module.exports.getKeeper = ({params: {id}}, res, next) => {
@@ -18,6 +19,7 @@ module.exports.getKeepers = (req, res, next)  =>  {
 
 module.exports.postNewKeeper = ({ body }, res, next) => {
   Keepers.forge(body)
+  .save()
   .then(Keepers => res.status(201).json({msg: 'You posted a keeper'}))
   .catch((err) => { return next(err)})
 }
@@ -26,6 +28,7 @@ module.exports.deleteKeeper = ({ params: { id }}, res, next) => {
   Keepers.forge({id})
   .destroy()
   .then( (keepers) => {
+    Animal_Keepers.deleteKeeper(id)
     res.status(200).json(animal)
   })
   .catch( (err) => {

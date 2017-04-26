@@ -1,6 +1,7 @@
 'use strict';
 
 const Animals = require('../models/animals');
+require('../models/animals_keepers')
 
 module.exports.getAnimal = ({params: {id}}, res, next) => {
   Animals.getOneAnimal(id)
@@ -18,6 +19,7 @@ module.exports.getAnimals = (req, res, next)  =>  {
 
 module.exports.postNewAnimal = ({ body }, res, next)  =>  {
   Animals.forge(body)
+  .save()
   .then(animal =>  res.status(201).json({msg: 'You posted an animal!'}))
   .catch((err)  => { return next(err)})
 }
@@ -26,6 +28,7 @@ module.exports.deleteAnimal = ( { params: { id }}, res, next) => {
   Animals.forge({id})
   .destroy()
   .then( (animal) => {
+      Animal_Keepers.deleteAnimal(id)
     res.status(200).json(animal)
   })
   .catch( (err) => {
