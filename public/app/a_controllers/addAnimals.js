@@ -1,4 +1,4 @@
-app.controller('AddAnimalCtrl', functiaddAnimals.json($scope, AnimalFact, ZookeeperFact){
+app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact){
 
 
   const popPage = () => {
