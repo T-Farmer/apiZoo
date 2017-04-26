@@ -10,6 +10,7 @@ module.exports.getAnimal = ({params: {id}}, res, next) => {
 }
 
 module.exports.getAnimals = (req, res, next)  =>  {
+  console.log("get animals called")
   Animals.getAllAnimals()
   .then(animals =>  res.status(200).json(animals))
   .catch((err)  => { return next(err)})
@@ -17,6 +18,7 @@ module.exports.getAnimals = (req, res, next)  =>  {
 
 module.exports.postNewAnimal = ({ body }, res, next)  =>  {
   Animals.forge(body)
+  .save()
   .then(animal =>  res.status(201).json({msg: 'You posted an animal!'}))
   .catch((err)  => { return next(err)})
 }

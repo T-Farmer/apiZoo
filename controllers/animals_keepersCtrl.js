@@ -1,5 +1,6 @@
 'use strict'
 
+
 const Animals_Keepers = require('../models/animals_keepers');
 
 module.exports.getKeepersForAnimal = ( {params: { id } }, res, next) => {
@@ -11,6 +12,7 @@ module.exports.getKeepersForAnimal = ( {params: { id } }, res, next) => {
       return next(err)
   })
 }
+
 
 module.exports.getAnimalsForKeeper = ( { params: { id } }, res, next ) => {
   Animals_Keepers.getAnimalsForKeeper(id)
@@ -25,7 +27,8 @@ module.exports.getAnimalsForKeeper = ( { params: { id } }, res, next ) => {
 module.exports.joinDeleteKeeper = ( { params: { id} }, res, next ) => {
   Animals_Keepers.deleteKeeper(id)
   .then( (res) => {
-    res.status(200).json({'msg': 'keeper deleted from join table'})
+    res.status(200).json({msg: 'keeper deleted from join table'})
+
   })
   .catch( (err) => {
     console.log("err in joinDeleteKeeper")
@@ -36,7 +39,7 @@ module.exports.joinDeleteKeeper = ( { params: { id} }, res, next ) => {
 module.exports.joinDeleteAnimal = ( { params: { id} }, res, next ) => {
   Animals_Keepers.deleteAnimal(id)
   .then( (res) => {
-    res.status(200).json({'msg': 'animal deleted from join table'})
+    res.status(200).json({msg: 'animal deleted from join table'})
   })
   .catch( (err) => {
     console.log("err in joindeleteAnimal")

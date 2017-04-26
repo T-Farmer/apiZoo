@@ -8,7 +8,7 @@ const Animals = bookshelf.Model.extend({
   tableName:  'animals'
 }, {
   getAllAnimals:  function() {
-    console.log('Get all keepers from model');
+    console.log('Get all animals from model');
     return this.forge()
     .fetchAll()
     .then(rows => rows)

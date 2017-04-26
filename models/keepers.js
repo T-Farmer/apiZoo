@@ -35,6 +35,7 @@ const Keepers = bookshelf.Model.extend({
     })
 
 },
+
 editThisKeeper: function(id, { name }) {
   return this.forge({ id, name})
   .save()

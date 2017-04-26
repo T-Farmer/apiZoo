@@ -18,9 +18,9 @@ app.use('/api/v1/', routes);
 
 
 //catch 404
-app.use( (req, res, next) => {
+app.use( function(req, res, next) {
   let err = new Error('Not Found, Yikes!');
-  err.status === 404;
+  err.status = 404;
   next(err);
 })
 
