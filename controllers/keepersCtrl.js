@@ -34,13 +34,13 @@ module.exports.deleteKeeper = ({ params: { id }}, res, next) => {
   })
 }
 
-module.exports.keeperEdit = ( req, res, next) => {
+module.exports.keeperEdit = (req, res, next) => {
   const keeper = req.body
   const id = req.params.id
   console.log("keeper", keeper)
   console.log("id", id)
   Keepers.editThisKeeper(id, keeper)
-  .then(res)=> {
+  .then(res => {
     res.status(200).json(keeper)
     .catch( (err) => {
       console.log("edit error", err)
