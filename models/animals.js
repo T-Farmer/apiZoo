@@ -29,6 +29,17 @@ const Animal = bookshelf.Model.extend({
       return err
   })
 
+},
+editThisAnimal: function(id, {name, species, age}) {
+  return this.forge({ id, name, species, age })
+  .save()
+  .then( () => {
+    return { 'msg': 'Animal updated'}
+  })
+  .catch ( (err) => {
+    console.log('err from edit animal', err)
+    return  err
+  })
 }
 });
 
