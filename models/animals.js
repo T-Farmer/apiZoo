@@ -4,7 +4,7 @@ const {bookshelf} = require('../db/database');
 require('./animals_keepers');
 require('./keepers');
 
-const Animal = bookshelf.Model.extend({
+const Animals = bookshelf.Model.extend({
   tableName:  'animals'
 }, {
   getAllAnimals:  function() {
@@ -43,4 +43,4 @@ editThisAnimal: function(id, {name, species, age}) {
 }
 });
 
-module.exports = bookshelf.model('Animal', Animal)
+module.exports = bookshelf.model('Animals', Animals)

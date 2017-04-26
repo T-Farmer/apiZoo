@@ -7,7 +7,8 @@ router.use(require('./routes'))
 
 router.get('/', (req, res) => {
   res.json({
- 'animals': './animals'
+ 'animals': './animals',
+ 'keepers': './keepers'
 })
 
 });
