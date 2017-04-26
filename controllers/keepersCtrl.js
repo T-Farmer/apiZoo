@@ -11,7 +11,8 @@ module.exports.getKeeper = ({params: {id}}, res, next) => {
 
 module.exports.getKeepers = (req, res, next)  =>  {
   Keepers.getAllKeepers()
-  .then(Keepers =>  res.status(200).json(Keepers))
+  .then(Keepers =>  {console.log("Keepers")
+  res.status(200).json(Keepers)})
   .catch(err => next(err))
 }
 
@@ -24,7 +25,7 @@ module.exports.postNewKeeper = ({ body }, res, next) => {
 module.exports.deleteKeeper = ({ params: { id }}, res, next) => {
   Keepers.forge({id})
   .destroy()
-  .hen( (keepers) => {
+  .then( (keepers) => {
     res.status(200).json(animal)
   })
   .catch( (err) => {
@@ -32,17 +33,17 @@ module.exports.deleteKeeper = ({ params: { id }}, res, next) => {
   })
 }
 
-module.exports.keeperEdit = ( req, res, next) => {
-  const keeper = req.body
-  const id = req.params.id
-  console.log("keeper", keeper)
-  console.log("id", id)
-  Keepers.editThisKeeper(id, keeper)
-  .then(res)=> {
-    res.status(200).json(keeper)
-    .catch( (err) => {
-      console.log("edit error", err)
-      return next(err)
-    })
-  })
-}
+// module.exports.keeperEdit = ( req, res, next) => {
+//   const keeper = req.body
+//   const id = req.params.id
+//   console.log("keeper", keeper)
+//   console.log("id", id)
+//   Keepers.forge.editThisKeeper(id, keeper)
+//   .then(res)=> {
+//     res.status(200).json(keeper)
+//     .catch( (err) => {
+//       console.log("edit error", err)
+//       return next(err)
+//     })
+//   })
+// }

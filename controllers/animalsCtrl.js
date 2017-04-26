@@ -9,8 +9,10 @@ module.exports.getAnimal = ({params: {id}}, res, next) => {
 }
 
 module.exports.getAnimals = (req, res, next)  =>  {
+  console.log("get animals called")
   Animals.getAllAnimals()
-  .then(animals =>  res.status(200).json(Animals))
+  .then(animals => {console.log("animals")
+  res.status(200).json(animals)})
   .catch((err)  => { return next(err)})
 }
 
