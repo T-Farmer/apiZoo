@@ -1,0 +1,25 @@
+'use strict'
+
+const AKeepers = require('..models/animals_keepersCtrl');
+
+module.exports.getKeeperForAnimal = ( {params: { id } }, res, next) => {
+  AKeepers.getKeepersforAnimal(id)
+  .then( (keepArr) => {
+    res.status(200).json(keepArr)
+    .catch((err) => {
+      console.log('getkeeper for animal ctroller', err)
+      return next(err)
+    })
+  })
+}
+
+module.exports.getAnimalsforKeeper = ( { params: { id } }, res, next ) => {
+  AKeepers.getAnimalsforKeeper(id)
+  .then( (animalArr) => {
+    res.status(200).json(animalArr)
+    .catch( (err) => {
+      console.log("getAnimals for keeper controller", err)
+      return next(err)
+    })
+  })
+}

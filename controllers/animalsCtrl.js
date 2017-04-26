@@ -1,6 +1,6 @@
 'use strict';
 
-const Animals = require('../models/animals');
+require('../models/animals');
 
 module.exports.getAnimal = ({params: {id}}, res, next) => {
   Animals.getOneAnimal(id)
