@@ -1,7 +1,8 @@
 'use strict';
 
 const Keepers = require('../models/keepers');
-require('../models/animals_keepers')
+
+const Animal_Keepers = require('../models/animals_keepers')
 
 //Do we need getKeeper and getKeepers??
 module.exports.getKeeper = ({params: {id}}, res, next) => {
