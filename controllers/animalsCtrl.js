@@ -1,7 +1,7 @@
 'use strict';
 
-require('../models/animals');
-require('../models/animals_keepers')
+const Animals = require('../models/animals');
+const Animal_Keepers = require('../models/animals_keepers')
 
 module.exports.getAnimal = ({params: {id}}, res, next) => {
   Animals.getOneAnimal(id)
@@ -11,7 +11,7 @@ module.exports.getAnimal = ({params: {id}}, res, next) => {
 
 module.exports.getAnimals = (req, res, next)  =>  {
   Animals.getAllAnimals()
-  .then(animals =>  res.status(200).json(Animals))
+  .then(animals =>  res.status(200).json(animals))
   .catch((err)  => { return next(err)})
 }
 

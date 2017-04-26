@@ -7,7 +7,7 @@ require('./animals');
 const Animals_Keepers = bookshelf.Model.extend({
   tableName:  'animals_keepers'
 }, {
-  getAnimalsforKeeper: function(id) {
+  getAnimalsForKeeper: function(id) {
     const keeperId = id
     return this.forge(keeperId)
     .fetchAll()
@@ -20,7 +20,7 @@ const Animals_Keepers = bookshelf.Model.extend({
       return err
     })
   },
-  getKeepersforAnimal: function (id) {
+  getKeepersForAnimal: function (id) {
       const animalId = id
     return this.forge(animalId)
     .fetchAll()

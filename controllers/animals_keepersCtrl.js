@@ -1,27 +1,25 @@
 'use strict'
 
-require('../models/animals_keepers');
+const Animals_Keepers = require('../models/animals_keepers');
 
 module.exports.getKeepersForAnimal = ( {params: { id } }, res, next) => {
-  Animals_Keepers.getKeepersforAnimal(id)
+  Animals_Keepers.getKeepersForAnimal(id)
   .then( (keepArr) => {
     res.status(200).json(keepArr)
-    .catch((err) => {
+    }).catch((err) => {
       console.log('getkeeper for animal ctroller', err)
       return next(err)
-    })
   })
 }
 
-module.exports.getAnimalsforKeeper = ( { params: { id } }, res, next ) => {
-  Animals_Keepers.getAnimalsforKeeper(id)
+module.exports.getAnimalsForKeeper = ( { params: { id } }, res, next ) => {
+  Animals_Keepers.getAnimalsForKeeper(id)
   .then( (animalArr) => {
-    res.status(200).json(animalArr)
-    .catch( (err) => {
+    res.status(200).json({animalArr})
+  }).catch( (err) => {
       console.log("getAnimals for keeper controller", err)
       return next(err)
     })
-  })
 }
 
 module.exports.joinDeleteKeeper = ( { params: { id} }, res, next ) => {
