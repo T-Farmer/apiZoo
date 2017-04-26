@@ -16,7 +16,7 @@ router.get('/animals', getAnimals);
 // router.delete('/animals/:id', METHOD TO DELETE AN ANIMAL);
 // router.patch('/animals/:new', METHOD TO PATCH ANIMAL INFO);
 // router.patch('/keepers/:new', METHOD TO PATCH KEEPERS INFO);
-//
+
 
 
 module.exports = router;
