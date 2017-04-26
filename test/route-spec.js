@@ -39,7 +39,7 @@ describe('Zoo Routes', () => {
     })
   })
 
-//test 2
+//test 2 /passing
   describe('post a new animal to the database', () => {
     it('should post a new animal', () => {
       return chai.request(server)
@@ -57,7 +57,7 @@ describe('Zoo Routes', () => {
     })
   })
 
-//test 3
+//test 3 /passing
   describe('return all keepers', () => {
     it('should return all keepers', () => {
       return chai.request(server)
@@ -72,31 +72,31 @@ describe('Zoo Routes', () => {
     })
   })
 
-// //test 4
-//   describe('post a new keeper to the database', () => {
-//     it('should post a new keeper', () => {
-//       return chai.request(server)
-//       .post('/api/v1/keppers/new')
-//       .send({
-//         name: 'Ryan',
-//       })
-//       .then( (res) => {
-//         res.should.have.status(201)
-//       })
-//     })
-//   })
-//
-// //test 5
-//   describe('return all animals for an keeper', () => {
-//     it('should return the animals for an keeper', () => {
-//       return chai.request(server)
-//       .get('/api/v1/animals/:id')
-//       .then( (res) => {
-//         res.should.have.status(200)
-//       })
-//     })
-//   })
-//
+//test 4 /passing
+  describe('post a new keeper to the database', () => {
+    it('should post a new keeper', () => {
+      return chai.request(server)
+      .post('/api/v1/keepers/new')
+      .send({
+        name: 'Ryan',
+      })
+      .then( (res) => {
+        res.should.have.status(201)
+      })
+    })
+  })
+
+//test 5
+  describe('return all animals for a keeper', () => {
+    it('should return the animals for a keeper', () => {
+      return chai.request(server)
+      .get('/api/v1/animals/keeper/1')
+      .then( (res) => {
+        res.should.have.status(200)
+      })
+    })
+  })
+
 // //test 6
 //   describe('return all the keepers for a animal', () => {
 //     it('should return the keepers for an animal', () => {
