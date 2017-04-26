@@ -35,11 +35,12 @@ const Keepers = bookshelf.Model.extend({
     })
 
 },
-editThisKeeper: function(id, keeper) {
-  return this.forge({ id, keeper})
+
+editThisKeeper: function(id, { name }) {
+  return this.forge({ id, name})
   .save()
   .then( () => {
-    return { 'msg': 'keeper updated'}
+    return { 'msg': 'Keeper updated'}
   })
   .catch ( (err) => {
     console.log('err from edit keeper', err)
