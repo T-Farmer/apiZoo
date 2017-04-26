@@ -2,7 +2,7 @@
 
 const AKeepers = require('..models/animals_keepersCtrl');
 
-module.exports.getKeeperForAnimal = ( {params: { id } }, res, next) => {
+module.exports.getKeepersForAnimal = ( {params: { id } }, res, next) => {
   AKeepers.getKeepersforAnimal(id)
   .then( (keepArr) => {
     res.status(200).json(keepArr)
