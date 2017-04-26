@@ -20,7 +20,7 @@ module.exports.postNewAnimal = ({ body }, res, next)  =>  {
   .catch((err)  => { return next(err)})
 }
 
-module.exports.deleteShow = ({ params: { id }}, res, next) => {
+module.exports.deleteAnimal = ({ params: { id }}, res, next) => {
   Animals.forge({id})
   .destroy()
   .then( (animal) => {
