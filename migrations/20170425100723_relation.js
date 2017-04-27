@@ -2,8 +2,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('relation', (table) => {
     table.increments();
-    table.integer('animals_id').notNullable();
-    table.integer('keepers_id').notNullable();
+    table.integer('animal_id').notNullable();
+    table.integer('keeper_id').notNullable();
   });
 
 };

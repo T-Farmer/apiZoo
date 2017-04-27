@@ -5,12 +5,15 @@ require('./keepers');
 require('./animals');
 
 const Animals_Keepers = bookshelf.Model.extend({
-  tableName:  'animals_keepers'
+  tableName:  'relation',
+  animal: function() { return this.belongsTo('Animals')},
+  keeper: function() { return this.belongsTo('Keepers')}
+
 }, {
   getAnimalsForKeeper: function(id) {
-    const keeperId = id
-    return this.forge(keeperId)
-    .where('keepers_id', '=', keeperId)
+
+    return this.forge()
+    .where({ keepers_id: id })
     .fetchAll()
     .then( (id) => {
       return id
@@ -56,7 +59,7 @@ const Animals_Keepers = bookshelf.Model.extend({
       return res
     })
     .catch( (err) => {
-      console.log("delete animal in animals_keeper err", err)
+      console.log("delete animal in animals_keepers err", err)
       return err
     })
 
