@@ -5,7 +5,9 @@ require('./animals_keepers');
 require('./animals');
 
 const Keepers = bookshelf.Model.extend({
-  tableName:  'keepers'
+  tableName:  'keepers',
+  animalsRelated: function() { return this.belongsToMany('Animals').through('Animals_Keepers')}
+
 }, {
   getAllKeepers:  function() {
     console.log('Get all keepers from model');

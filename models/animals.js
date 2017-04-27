@@ -5,14 +5,19 @@ require('./animals_keepers');
 require('./keepers');
 
 const Animals = bookshelf.Model.extend({
-  tableName:  'animals'
-}, {
+  tableName:  'animals',
+  keepersRelated: function() { return this.belongsToMany('Keepers').through('Animals_Keepers')}
+ }, { // {
   getAllAnimals:  function() {
     console.log('Get all animals from model');
     return this.forge()
-    .fetchAll()
-    .then(rows => rows)
-    .catch((err) => {return err } )
+    .fetchAll({ withRelated: ['keepersRelated'], require: true })
+    .then((rows) => {
+      console.log("getallAnimals model", rows)
+      return rows})
+    .catch((err) => {
+      console.log("getall animals catch")
+      return err })
   },
   getOneAnimal: function(id){
     return this.forge({id})

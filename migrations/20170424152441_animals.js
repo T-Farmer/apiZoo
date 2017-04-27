@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('name').notNullable();
     table.string('species').notNullable();
     table.integer('age').notNullable();
-    // table.integer('keeper_id').unsigned().references('id');
+
   });
 };
 

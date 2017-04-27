@@ -29,7 +29,7 @@ app.factory('AnimalFact', function($http) {
 
     update: (id, updateInfo) => {
       return new Promise((resolve, reject) => {
-        $http.patch(`http://localhost:3000/api/v1/animals/${id}`, updateInfo)
+        $http.patch(`http://localhost:3000/api/v1/animals/${updateInfo}`)
         .then((data) => {
           resolve()
         })
