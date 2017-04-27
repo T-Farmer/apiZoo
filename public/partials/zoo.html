@@ -9,11 +9,12 @@
   <div class="animalCard" ng-repeat="animal in animals">
   <img class="animalPic" src="http://www.isarcastici4.it/immagini/umorismo/smooth_criminal_michael_jackson_meme_owl_antigravity_lean.jpg">
   {{ animal.name }} is a {{animal.age}} year old {{animal.species}} cared for by
-    <span ng-if="animal.zookeepers.length === 0">
+    <!-- <span ng-if="animal.zookeepers.length === 0">
       no one
-    </span>
-    <span ng-repeat="zookeeper in animal.zookeepers">
-      {{$last? ' and ' : ''}}{{zookeeper.name}}{{$last? '.' : ', '}}
+    </span> -->
+    <span>
+    <!-- ng-repeat="Keeper in animal.keepersRelated[0].name"> -->
+      {{animal.keepersRelated[0].name}}
     </span>
     <div>
       <input type="button" value="remove" ng-click="remove(animal.id)">

@@ -6,6 +6,7 @@ const popPage = () =>{
   AnimalFact.getAll()
     .then((animals) => {
       console.log(animals)
+      console.log(animals[0].keepersRelated[0].name)
       $scope.animals = animals
       $scope.$apply()
     })
