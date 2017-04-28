@@ -3,20 +3,33 @@
 const  { Router } = require('express');
 const router = Router();
 
-// const { all of the methods from the controllers HERE } = require('CONTROLLER')
+const { getAnimals, getAnimal, postNewAnimal, deleteAnimal, animalEdit  } = require('../controllers/animalsCtrl')
+const { getKeeper, getKeepers, keeperEdit, deleteKeeper, postNewKeeper } = require('../controllers/keepersCtrl')
+const { getAnimalsForKeeper, getKeepersForAnimal, joinDeleteAnimal, joinDeleteKeeper } = require('../controllers/animals_keepersCtrl')
 
 
-// router.get('/animals', METHOD TO CALL ALL ANIMALS);
-// router.post('/animals/new', METHOD TO POST NEW ANIMAL);
-// router.get('/keepers', METHOD TO GET ALL KEEPERS);
-// router.post('/keepers/new', METHOD TO POST A NEW KEEPER);
-// router.get('animals/:id', METHOD TO GET ALL ANIMALS FOR A KEEPER);
-// router.get('keepers/:id', METHOD TO GET ALL KEEPERS FOR A ANIMAL);
-// router.delete('keepers/:id', METHOD TO DELETE A KEEPER BY ID)
-// router.delete('/animals/:id', METHOD TO DELETE AN ANIMAL);
-// router.patch('/animals/:new', METHOD TO PATCH ANIMAL INFO);
-// router.patch('/keepers/:new', METHOD TO PATCH KEEPERS INFO);
-//
+router.get('/animals', getAnimals);
+router.post('/animals/new', postNewAnimal);
+router.get('/keepers', getKeepers);
+router.post('/keepers/new', postNewKeeper );
+router.get('/animals/keepers/:id', getAnimalsForKeeper);
+router.get('/keepers/animal/:id', getKeepersForAnimal);
+router.delete('/keepers/:id', deleteKeeper)
+router.delete('/keepers/animals/:id', joinDeleteAnimal)
+router.delete('/animals/keepers/:id', joinDeleteKeeper)
+router.delete('/animals/:id', deleteAnimal);
+router.patch('/animals/:new', animalEdit);
+router.patch('/keepers/:new', keeperEdit);
+
 
 
 module.exports = router;
+//function which takes animal Id
+//query relation table, returns KEEPER id
+//query keeper table, return Keeper Name
+//animals model add method called keeperRelated
+//function(){ return this.belongsToMany('keepers').through('relations')}
+// ANIMALS KEEPERS
+
+// KEEPERS
+// ANIMALS

@@ -1,3 +1,4 @@
+//seeding for animals
 
 exports.seed = function(knex, Promise) {
   return knex('animals').del()
