@@ -6,9 +6,9 @@ const router = Router();
 router.use(require('./routes'))
 
 router.get('/', function(req, res)) {
-  res.json({
-    'title':  'Zoo API data',
-  })
+  // res.json({
+  //   'title':  'Zoo API data',
+  // })
 }
 
 module.exports = router;
